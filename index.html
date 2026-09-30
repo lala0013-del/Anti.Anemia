@@ -1,0 +1,1401 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Sistem Informasi Penyakit Anemia Terlengkap - Edukasi Medis, Patofisiologi, Farmakologi Obat, Dosis, dan Manajemen Pencegahan.">
+    <title>ANTI ANEMIA | Sistem Informasi Kesehatan Digital</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================================== -->
+    <!-- 1. LOADING SCREEN SYSTEM                   -->
+    <!-- ========================================== -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader-content">
+            <div class="dna-spinner">
+                <div class="dna-dot"></div>
+                <div class="dna-dot"></div>
+                <div class="dna-dot"></div>
+                <div class="dna-dot"></div>
+            </div>
+            <h3 class="loading-text">Loading Medical System...</h3>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Canvas Particle Medis -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- ========================================== -->
+    <!-- NAVBAR / HEADER                            -->
+    <!-- ========================================== -->
+    <header class="navbar-container" id="navbar">
+        <nav class="navbar" aria-label="Navigasi Utama">
+            <!-- Brand Logo -->
+            <a href="#home" class="brand-logo">
+                <span class="logo-icon">
+                    <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+                </span>
+                <span class="logo-text">
+                    <span class="brand-title">ANTI<span class="highlight">ANEMIA</span></span>
+                    <span class="brand-sub">Medical Info System</span>
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Beranda</a></li>
+                <li><a href="#pengertian" class="nav-link">Edukasi Medis</a></li>
+                <li><a href="#farmakologi" class="nav-link">Farmakologi</a></li>
+                <li><a href="#aturan" class="nav-link">Aturan Pakai</a></li>
+                <li><a href="#efek-samping" class="nav-link">Efek Samping</a></li>
+                <li><a href="#pencegahan" class="nav-link">Pencegahan</a></li>
+                <li><a href="#sejarah" class="nav-link">Sejarah</a></li>
+                <li><a href="#profil" class="nav-link">Pembuat</a></li>
+            </ul>
+
+            <!-- Action Buttons -->
+            <div class="nav-actions">
+                <button type="button" id="theme-toggle" class="icon-btn" title="Ubah Mode Tampilan"
+                    aria-label="Ubah Mode Tampilan">
+                    <i class="fa-solid fa-moon" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="hamburger" id="hamburger" aria-label="Buka Menu Navigasi"
+                    aria-expanded="false" aria-controls="nav-menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main id="main-content">
+        <!-- ========================================== -->
+    <!-- SECTION 1: HERO / HOME                     -->
+    <!-- ========================================== -->
+    <section id="home" class="hero-section">
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <span class="badge-tag">
+                    <i class="fa-solid fa-shield-halved"></i> Pusat Edukasi Hematologi & Farmakologi
+                </span>
+                <h1 class="hero-title">
+                    ANTI ANEMIA: <br>
+                    <span class="gradient-text">Penyakit, Patofisiologi</span> & Manajemen Obat
+                </h1>
+                <p class="hero-tagline">"Kenali Anemia, Cegah Lebih Awal, Hidup Lebih Sehat"</p>
+                <p class="hero-description">
+                    Platform sistem informasi kesehatan komprehensif yang menyajikan parameter medis teruji, klaster
+                    obat berdasarkan bioavailabilitas, aturan interval konsumsi, dampak toksisitas, hingga program
+                    pencegahan nasional.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#pengertian" class="btn btn-primary">
+                        <span>Pelajari Detail</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#profil" class="btn btn-outline">
+                        <span>Tentang Pembuat</span>
+                        <i class="fa-solid fa-user-doctor"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual reveal">
+                <div class="medical-card-glass floating">
+                    <div class="visual-header">
+                        <i class="fa-solid fa-droplet pulse-icon text-red"></i>
+                        <div>
+                            <h4>Ambang Batas Hemoglobin (Hb)</h4>
+                            <small>Standar World Health Organization (WHO)</small>
+                        </div>
+                    </div>
+                    <div class="hb-status" style="flex-direction: column;">
+                        <div class="status-box alert" style="text-align: left; padding: 10px 15px;">
+                            <strong>Pria Dewasa:</strong> &lt; 13.0 g/dL | <strong>Wanita Dewasa:</strong> &lt; 12.0
+                            g/dL
+                        </div>
+                        <div class="status-box normal" style="text-align: left; padding: 10px 15px;">
+                            <strong>Ibu Hamil:</strong> &lt; 11.0 g/dL | <strong>Anak (0.5 - 5 thn):</strong> &lt;
+                            11.0 g/dL
+                        </div>
+                    </div>
+                    <div class="visual-illustration">
+                        <i class="fa-solid fa-dna dna-icon"></i>
+                        <div class="floating-badge badge-1">
+                            <i class="fa-solid fa-microscope text-blue"></i> Pemeriksaan Ferritin
+                        </div>
+                        <div class="floating-badge badge-2">
+                            <i class="fa-solid fa-notes-medical text-green"></i> Terapi Zat Besi
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: PENGERTIAN ANEMIA DETIL         -->
+    <!-- ========================================== -->
+    <section id="pengertian" class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal">
+                <span class="section-subtitle">Patofisiologi Dasar</span>
+                <h2 class="section-title">Pemahaman Komprehensif <span class="gradient-text">Anemia</span></h2>
+                <p class="section-desc">Penjelasan mendalam mengenai mekanisme klinis, klasifikasi, gejala fisik
+                    spesifik, dan etiologi penurunan hemoglobin.</p>
+            </div>
+
+            <div class="grid grid-2 align-center">
+                <div class="card card-glass reveal">
+                    <div class="card-icon red-icon">
+                        <i class="fa-solid fa-microscope"></i>
+                    </div>
+                    <h3>Definisi Medis & Hemodinamika</h3>
+                    <p><strong>Anemia</strong> adalah kondisi klinis yang ditandai dengan penurunan konsentrasi
+                        massa sel darah merah (eritrosit) atau kadar <em>Hemoglobin (Hb)</em> di bawah rerata nilai
+                        normal populasi, sehingga mengakibatkan penurunan kapasitas pengangkutan oksigen (O₂)
+                        dari paru-paru ke jaringan tubuh.</p>
+                    <ul class="check-list mt-3">
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Penurunan Hematokrit (Ht):</strong>
+                            Volume eritrosit yang dimampatkan dalam darah berkurang.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Hipoksia Jaringan:</strong> Organ
+                            kekurangan pasokan oksigen untuk respirasi seluler ATP.</li>
+                        <li><i class="fa-solid fa-circle-check"></i> <strong>Deplesi Cadangan
+                                Iron/Ferritin:</strong> Cadangan besi di hati dan sumsum tulang habis sebelum Hb
+                            turun.</li>
+                    </ul>
+                </div>
+
+                <div class="grid grid-2 gap-small">
+                    <div class="info-card reveal">
+                        <i class="fa-solid fa-triangle-exclamation text-red icon-lg"></i>
+
+
+
+
+
+                        <h4>Etiologi / Penyebab Utama</h4>
+                        <p>1. <strong>Kurang Produksi:</strong> Defisiensi nutrisi (Fe, B12, Asam Folat) atau
+                            depresi sumsum tulang.<br>
+                            2. <strong>Pendarahan Kronis:</strong> Menstruasi berlebih, tukak lambung, infeksi
+                            cacing tambang.<br>
+                            3. <strong>Hemolisis:</strong> Penghancuran sel darah merah terlalu cepat (Thalasemia,
+                            Anemia Sel Sabit).</p>
+                    </div>
+                    <div class="info-card reveal">
+                        <i class="fa-solid fa-user-ninja text-blue icon-lg"></i>
+                        <h4>Gejala Klinis</h4>
+                        <p> 1. <strong>Lemas dan Kelelahan</strong> (Merasa kurang bertenaga, cepat lelah, dan lesu meskipun sudah cukup beristirahat).</p>
+                        <p> 2. <strong>Kulit Pucat</strong> (Tampak pucat pada bagian kelopak mata, bibir, kulit, kuku, dan telapak tangan).</p>
+                        <p> 3. <strong>Pusing dan Berkunang-kunang</strong> (Sering sakit kepala, pusing, atau pandangan kabur karena aliran oksigen ke otak menurun).</p>
+                        <p> 4. <strong>Gangguan Pernapasan</strong> (Mengalami napas pendek atau sesak napas, terutama saat sedang beraktivitas).</p>
+                        <p> 5. <strong>Jantung Berdebar</strong> (Denyut jantung terasa cepat (takikardi) atau tidak teratur sebagai respons tubuh untuk memompa darah lebih kuat)</p>
+                        <p> 6. <strong>Tangan dan Kaki Dingin</strong> (Suhu tubuh perifer terasa dingin akibat vasokonstriksi atau penyempitan pembuluh darah).</p>
+                    </div>
+                    <div class="info-card reveal">
+                        <i class="fa-solid fa-disease text-red icon-lg"></i>
+                        <h4>Faktor Risiko Populasi</h4>
+                        <p>• <strong>Remaja Putri:</strong> Kehilangan darah bulanan & pertumbuhan pesat.<br>
+                            • <strong>Ibu Hamil:</strong> Efek pengenceran darah (hemodilusi) & kebutuhan janin.<br>
+                            • <strong>Vegetarian Ketat:</strong> Rendahnya asupan zat besi bentuk <em>Heme</em>.</p>
+                    </div>
+                    <div class="info-card reveal">
+                        <i class="fa-solid fa-notes-medical text-blue icon-lg"></i>
+                        <h4>Dampak Kronis Sistemik</h4>
+                        <p>Penurunan daya tahan tubuh terhadap infeksi, kardiomegali (pembesaran jantung) akibat
+                            kerja ekstra pemompaan darah, serta penurunan fungsi kognitif dan prestasi belajar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: FARMAKOLOGI MOLEKULER GLOBAL   -->
+    <!-- ========================================== -->
+    <section id="farmakologi" class="section bg-light">
+        <div class="container">
+            <div class="section-header text-center reveal mb-5">
+                <span class="section-subtitle">Farmakologi Klinis & Biokimia Seluler</span>
+                <h2 class="section-title">Farmakokinetika & <span class="gradient-text">Mekanisme Molekuler</span>
+                </h2>
+                <p class="section-desc">Analisis mendalam mengenai absorpsi luminal, transportasi transmembran,
+                    regulasi hormonal Hepcidin, kaskade sinyal eritropoiesis, serta formulasi nanoteknologi modern.
+                </p>
+            </div>
+
+            <!-- SUBSECTION 1: FARMAKOKINETIKA ZAT BESI (ADME MOLEKULER) -->
+            <div class="mb-5 reveal">
+                <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-microscope text-blue"></i> 1.
+                    Farmakokinetika Zat Besi: Absorpsi & Transportasi Transmembran</h3>
+
+                <div class="grid grid-2" style="gap: 2rem;">
+                    <!-- Absorpsi & Reduksi Luminal -->
+                    <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                        <div class="badge-tag info-badge mb-3">Absorpsi Luminal Usus Halus</div>
+                        <h4 style="margin-bottom: 0.8rem;"><i class="fa-solid fa-arrow-right-to-bracket text-blue"></i>
+                            Transpor Transseluler
+                            Mukosa (DMT1)</h4>
+                        <p style="margin-bottom: 1.2rem;">Di lumen duodenum, Ion Fe³⁺ direduksi menjadi Fe²⁺
+                            oleh enzim <strong>Dcytb (Duodenal Cytochrome B)</strong>. Ion Fe kemudian masuk
+                            ke sel enterosit via transporter <strong>DMT1 (Divalent Metal Transporter 1)</strong>.
+                        </p>
+                        <div
+                            style="padding: 1rem; background: rgba(2, 132, 199, 0.08); border-radius: 8px; font-size: 0.9rem;">
+                            <strong><i class="fa-solid fa-lightbulb text-blue"></i> Catatan Klinis:</strong><br>
+                            Vitamin C (Asam Askorbat) bertindak sebagai kofaktor donor elektron yang mempercepat
+                            reaksi Dcytb, meningkatkan influks Fe hingga 3 kali lipat.
+                        </div>
+                    </div>
+
+                    <!-- Efluks & Regulasi Hepcidin -->
+                    <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                        <div class="badge-tag alert-badge mb-3">Sistem Efluks & Poros Hormonal</div>
+                        <h4 style="margin-bottom: 0.8rem;"><i class="fa-solid fa-lock text-red"></i> Ferroportin-1 &
+                            Poros Regulasi Hepcidin</h4>
+                        <p style="margin-bottom: 1.2rem;">Ion besi dilepas ke sirkulasi darah via gerbang
+                            <strong>Ferroportin-1</strong>. Hormon peptida <strong>Hepcidin</strong> (diproduksi
+                            hati) mengatur cadangan besi dengan cara mengikat dan mendegradasi Ferroportin.
+                        </p>
+                        <div
+                            style="padding: 1rem; background: rgba(225, 29, 72, 0.08); border-radius: 8px; font-size: 0.9rem;">
+                            <strong><i class="fa-solid fa-triangle-exclamation text-red"></i> Anemia
+                                Infeksi/Inflamasi Kronis:</strong><br>
+                            Sitokin IL-6 memicu hiper-sekresi Hepcidin, mengunci Ferroportin sehingga besi
+                            terperangkap di makrofag dan tidak bisa digunakan untuk eritropoiesis.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUBSECTION 2: DISTRIBUSI & SINTESIS HEME DI MITOKONDRIA -->
+            <div class="mb-5 reveal">
+                <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-dna text-green"></i> 2. Distribusi Plasma
+                    & Jalur Biosintesis Heme</h3>
+
+                <div class="grid grid-2" style="gap: 2rem;">
+                    <!-- Transportasi Transferrin & Storage -->
+                    <div class="card shadow-sm"
+                        style="padding: 2rem; line-height: 1.7; border: 1px solid rgba(226, 232, 240, 0.8);">
+                        <div class="badge-tag info-badge mb-3">Distribusi Plasma & Deposisi Organ</div>
+                        <h4 style="margin-bottom: 0.8rem;">Kompleks Transferrin-TfR1 & Ferritin</h4>
+                        <p style="margin-bottom: 1rem;">Di sirkulasi, Fe²⁺ dioksidasi menjadi Fe³⁺ oleh
+                            <em>Ceruloplasmin / Hephaestin</em> dan diikat oleh protein <strong>Transferrin</strong>
+                            (saturasi normal 20–45%).
+                        </p>
+                        <ul class="custom-list" style="font-size: 0.92rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Endositosis Tipe Receptor:</strong> Kompleks
+                                Transferrin mengikat reseptor <strong>TfR1</strong> pada permukaan sel prekursor
+                                eritroid.</li>
+                            <li><strong>Cadangan Besi:</strong> Kelebihan besi disimpan aman dalam bentuk kompleks
+                                protein <strong>Ferritin</strong> dan <strong>Hemosiderin</strong> di hati, limpa,
+                                dan sumsum tulang.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Jalur Sintesis Heme Mitokondria -->
+                    <div class="card shadow-sm"
+                        style="padding: 2rem; line-height: 1.7; border: 1px solid rgba(226, 232, 240, 0.8);">
+                        <div class="badge-tag alert-badge mb-3">Biokimia Seluler Mitokondria</div>
+                        <h4 style="margin-bottom: 0.8rem;">Enzim ALAS2 & Insersi Ferrochelatase</h4>
+                        <p style="margin-bottom: 1rem;">Sintesis Heme dimulai di dalam mitokondria sel darah merah
+                            muda melalui langkah biokimia teratur:</p>
+                        <ul class="custom-list" style="font-size: 0.92rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>Langkah Kunci 1:</strong> Kondensasi
+                                Succinyl-CoA + Glycine dipacu enzim <strong>ALAS2</strong> (membutuhkan Vitamin B6 /
+                                Pyridoxal Phosphate).</li>
+                            <li><strong>Langkah Akhir:</strong> Insersi ion Fe ke cincin Protoporphyrin IX
+                                dipicu oleh enzim <strong>Ferrochelatase</strong> membentuk molekul
+                                <strong>Heme</strong>.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-code-branch text-green"></i> Sinergi
+                    Sintesis DNA (Vitamin B12 & Folat)</h4>
+                <p style="margin-bottom: 1rem;">Maturasi inti sel eritrosit membutuhkan konversi dUMP
+                    menjadi dTMP dalam sintesis purin/pirimidin:</p>
+                <ul class="custom-list" style="font-size: 0.93rem;">
+                    <li style="margin-bottom: 0.6rem;"><strong>Vitamin B12 (Cobalamin):</strong> Kofaktor
+                        enzim <em>Methionine Synthase</em> untuk meregenerasi Tetrahidrofolat aktif.</li>
+                    <li><strong>Asam Folat (B9):</strong> Donor gugus metil tunggal. Defisiensi B12/B9
+                        memicu pembelahan sel terhenti (Sintesis DNA terhambat) → Anemia
+                        Megaloblastik.</li>
+                </ul>
+            </div>
+
+
+            <!-- ========================================== -->
+            <!-- SECTION 4: ATURAN PAKAI OBAT INTERAKSI     -->
+            <!-- ========================================== -->
+            <section id="aturan" class="section bg-light">
+                <div class="container">
+                    <div class="section-header text-center reveal">
+                        <span class="section-subtitle">Farmakokinetik & Interaksi</span>
+                        <h2 class="section-title">Aturan Konsumsi & <span class="gradient-text">Bioavailabilitas</span>
+                        </h2>
+                        <p class="section-desc">Panduan teknis waktu minum obat, peningkat penyerapan, dan
+                            penghambat interaksi kimiawi.</p>
+                    </div>
+
+                    <div class="grid grid-2">
+                        <div class="card card-glass reveal">
+                            <h3><i class="fa-solid fa-clock text-blue"></i> Protokol Waktu & Peningkat Penyerapan
+                                (Enhancers)</h3>
+                            <div class="timeline-steps mt-3">
+                                <div class="step-item">
+                                    <div class="step-num">1</div>
+                                    <div>
+                                        <h4>Kondisi Lambung Kosong</h4>
+                                        <p>Minum tablet 1 jam sebelum makan atau 2 jam setelah makan. Suasana asam
+                                            lambung mempermudah konversi Fe3+ (Ferri) menjadi Fe2+ (Ferro) yang
+                                            mudah diserap usus halus (duodenum).</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-num">2</div>
+                                    <div>
+                                        <h4>Sinergi Vitamin C (Asam Askorbat)</h4>
+                                        <p>Sangat disarankan diminum bersamaan dengan segelas jus jeruk atau
+                                            suplemen Vitamin C 100-250 mg. Vitamin C bertindak sebagai agen
+                                            pereduksi yang mencegah oksidasi zat besi.</p>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-num">3</div>
+                                    <div>
+                                        <h4>Durasi Terapi Teratur</h4>
+                                        <p>Terapi zat besi oral tidak boleh langsung dihentikan saat Hb mencapai
+                                            angka normal. Lanjutkan konsumsi selama 3 hingga 6 bulan untuk mengisi
+                                            ulang cadangan Ferritin dalam hati.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-column gap-normal reveal">
+                            <div class="warning-banner">
+                                <i class="fa-solid fa-circle-exclamation banner-icon"></i>
+                                <div>
+                                    <h4>Penghambat Penyerapan (Inhibitors) - Jeda 2 Jam!</h4>
+                                    <p>Hindari mengonsumsi suplemen zat besi bersamaan dengan makanan/minuman
+                                        berikut karena dapat mengikat zat besi menjadi kelat yang tidak dapat
+                                        diserap tubuh:</p>
+                                    <ul style="margin-top:8px; padding-left:18px; font-size:0.88rem;">
+                                        <li><strong>Teh & Kopi:</strong> Mengandung Senyawa Tanin & Polifenol.</li>
+                                        <li><strong>Susu & Produk Olahan:</strong> Kalsium berebut reseptor
+                                            penyerapan.</li>
+                                        <li><strong>Obat Antasida:</strong> Menetralkan asam lambung yang dibutuhkan
+                                            besi.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="card alert-card">
+                                <i class="fa-solid fa-ban text-red icon-lg"></i>
+                                <div>
+                                    <h4>Peringatan Dosis Berlebih (Toksisitas)</h4>
+                                    <p>Jangan pernah menambah dosis sendiri! Kelebihan akumulasi besi dalam jaringan
+                                        tubuh dapat memicu deposit jaringan (Hemokromatosis), kerusakan organ hati,
+                                        dan bahaya keracunan fatal pada anak-anak.</p>
+                                </div>
+                            </div>
+
+                            <div class="card info-highlight-card">
+                                <i class="fa-solid fa-quote-left text-blue icon-lg"></i>
+                                <p><strong>Pesan Edukasi Utama:</strong> "Gunakan obat sesuai dosis tepat dan
+                                    petunjuk tenaga kesehatan agar efektif tanpa memicu efek samping sistemik."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ========================================== -->
+            <!-- SECTION 5: EFEK SAMPING OBAT DETAIL        -->
+            <!-- ========================================== -->
+            <section id="efek-samping" class="section">
+                <div class="container">
+                    <div class="section-header text-center reveal mb-5">
+                        <span class="section-subtitle">Evaluasi Klinis & Farmakovigilans</span>
+                        <h2 class="section-title">Efek Samping & <span class="gradient-text">Manajemen Risiko</span>
+                        </h2>
+                        <p class="section-desc">Identifikasi reaksi sekunder obat, efek terapi intravena, serta fase
+                            toksisitas dengan tampilan yang lebih lega dan rapi.</p>
+                    </div>
+
+                    <!-- SUBSECTION 1: SUPLEMEN BESI ORAL -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-pills text-red"></i> 1. Efek
+                            Samping Suplemen Besi Oral</h3>
+
+                        <!-- Menggunakan grid 2 kolom agar kartu lebih lebar & tidak sesak -->
+                        <div class="grid grid-2" style="gap: 2rem;">
+
+                            <div class="card side-effect-card shadow-sm" style="padding: 2rem; line-height: 1.7;">
+                                <div class="badge-tag alert-badge mb-3">Sangat Sering (&gt;10%)</div>
+                                <i class="fa-solid fa-stomach text-red side-icon mb-2"></i>
+                                <h4 style="margin-bottom: 0.8rem;">Mual, Vomiting & Dispepsia</h4>
+                                <p style="margin-bottom: 1.2rem;"><strong>Mekanisme Biokimia:</strong> Pelepasan ion
+                                    besi bebas (Fe) mengiritasi dinding mukosa lambung dan memicu pembentukan
+                                    radikal bebas.</p>
+                                <div class="effect-solution"
+                                    style="padding: 1rem; background: rgba(2, 132, 199, 0.08); border-radius: 8px;">
+                                    <strong><i class="fa-solid fa-user-nurse text-blue"></i> Solusi
+                                        Medis:</strong><br>
+                                    Beralih ke <em>Ferrous Gluconate</em> atau konsumsi suplemen bersama sedikit
+                                    makanan non-kalsium.
+                                </div>
+                            </div>
+
+                            <div class="card side-effect-card shadow-sm" style="padding: 2rem; line-height: 1.7;">
+                                <div class="badge-tag info-badge mb-3">Sering (1% - 10%)</div>
+                                <i class="fa-solid fa-poop text-red side-icon mb-2"></i>
+                                <h4 style="margin-bottom: 0.8rem;">Feses Berwarna Hitam</h4>
+                                <p style="margin-bottom: 1.2rem;"><strong>Mekanisme Biokimia:</strong> Sisa ion besi
+                                    bereaksi dengan gas Hidrogen Sulfida di usus besar membentuk endapan <em>Ferrous
+                                        Sulfide</em>.</p>
+                                <div class="effect-solution"
+                                    style="padding: 1rem; background: rgba(34, 197, 94, 0.08); border-radius: 8px;">
+                                    <strong><i class="fa-solid fa-circle-check text-green"></i> Status
+                                        Medis:</strong><br>
+                                    Reaksi normal (benigna) & tidak berbahaya. Terapi obat tidak perlu dihentikan.
+                                </div>
+                            </div>
+
+                            <div class="card side-effect-card shadow-sm" style="padding: 2rem; line-height: 1.7;">
+                                <div class="badge-tag alert-badge mb-3">Sangat Sering (&gt;10%)</div>
+                                <i class="fa-solid fa-toilet-paper text-red side-icon mb-2"></i>
+                                <h4 style="margin-bottom: 0.8rem;">Konstipasi / Sembelit</h4>
+                                <p style="margin-bottom: 1.2rem;"><strong>Mekanisme Biokimia:</strong> Sifat
+                                    astringen ion besi mengikat cairan usus dan melambatkan gerakan peristaltik.</p>
+                                <div class="effect-solution"
+                                    style="padding: 1rem; background: rgba(2, 132, 199, 0.08); border-radius: 8px;">
+                                    <strong><i class="fa-solid fa-glass-water text-blue"></i> Solusi
+                                        Medis:</strong><br>
+                                    Tingkatkan minum air putih hingga 2,5–3 Liter per hari dan perbanyak asupan
+                                    serat pangan.
+                                </div>
+                            </div>
+
+                            <div class="card side-effect-card shadow-sm" style="padding: 2rem; line-height: 1.7;">
+                                <div class="badge-tag info-badge mb-3">Khusus Sirup Cair</div>
+                                <i class="fa-solid fa-tooth text-red side-icon mb-2"></i>
+                                <h4 style="margin-bottom: 0.8rem;">Pewarnaan Gigi (Tooth Staining)</h4>
+                                <p style="margin-bottom: 1.2rem;"><strong>Mekanisme Biokimia:</strong> Kontak
+                                    langsung zat besi cair pada enamel gigi meninggalkan noda pigmen gelap.</p>
+                                <div class="effect-solution"
+                                    style="padding: 1rem; background: rgba(2, 132, 199, 0.08); border-radius: 8px;">
+                                    <strong><i class="fa-solid fa-straw text-blue"></i> Solusi Medis:</strong><br>
+                                    Minum menggunakan sedotan, encerkan dengan air, dan segera sikat gigi setelah
+                                    konsumsi.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 2: EFEK SAMPING BESINTRAVENA & TERAPI KHUSUS -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-syringe text-blue"></i> 2. Efek
+                            Samping Besi Intravena (Injeksi) & Hormon EPO</h3>
+                        <div class="grid grid-2" style="gap: 2rem;">
+
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1rem;"><i
+                                        class="fa-solid fa-triangle-exclamation text-red"></i> Terapi Besi Intravena
+                                    (FCM)</h4>
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Reaksi Fishbane:</strong> Sensasi hangat di wajah
+                                        (<em>flushing</em>) dan nyeri dada sementara. Infus cukup diperlambat.
+                                    </li>
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Hipofosfatemia:</strong> Penurunan kadar fosfat darah yang memicu
+                                        kelemahan otot.
+                                    </li>
+                                    <li>
+                                        <strong>Ekstravasasi:</strong> Kebocoran jarum infus yang dapat memicu noda
+                                        cokelat permanen di kulit.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-dna text-blue"></i> Terapi
+                                    EPO & Vitamin B12 Dosis Tinggi</h4>
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Hipertensi (Efek EPO):</strong> Peningkatan mendadak massa sel darah
+                                        membuat darah lebih kental, sehingga tekanan darah naik.
+                                    </li>
+                                    <li>
+                                        <strong>Hipokalemia (Efek B12):</strong> Pembentukan sel darah baru menyedot
+                                        cadangan Kalium serum dalam jumlah besar secara mendadak.
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 3: TOKSISITAS DOSIS BERLEBIH -->
+                    <div class="card alert-card-gradient reveal" style="padding: 2.5rem;">
+                        <div class="text-center mb-4">
+                            <span class="badge-tag alert-badge-white mb-2"><i class="fa-solid fa-skull-crossbones"></i>
+                                DARURAT MEDIS</span>
+                            <h3 class="text-white">Patofisiologi Keracunan Besi Akut (Overdosis)</h3>
+                            <p class="text-white-80">Terjadi apabila dosis zat besi elemental yang tertelan melebihi
+                                <strong>20 mg/kg berat badan</strong>.
+                            </p>
+                        </div>
+
+                        <!-- Grid 2x2 agar kotak fase lebih luas -->
+                        <div class="grid grid-2" style="gap: 1.5rem;">
+                            <div class="phase-box"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                                <div class="phase-num" style="color: #fecdd3; font-weight: 700; margin-bottom: 0.5rem;">
+                                    FASE 1 (0.5 – 6
+                                    Jam)</div>
+                                <h5 class="text-white" style="margin-bottom: 0.5rem;">Iritasi Saluran Cerna</h5>
+                                <p class="text-white-80">Muntah darah hebat, diare berdarah, dan nyeri perut akibat
+                                    erosi mukosa lambung.</p>
+                            </div>
+
+                            <div class="phase-box"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                                <div class="phase-num" style="color: #fecdd3; font-weight: 700; margin-bottom: 0.5rem;">
+                                    FASE 2 (6 – 24
+                                    Jam)</div>
+                                <h5 class="text-white" style="margin-bottom: 0.5rem;">Fase Laten (Penyembuhan Semu)
+                                </h5>
+                                <p class="text-white-80">Gejala perut tampak mereda sementara, namun ion besi terus
+                                    merusak sel organ dalam.</p>
+                            </div>
+
+                            <div class="phase-box"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                                <div class="phase-num" style="color: #fecdd3; font-weight: 700; margin-bottom: 0.5rem;">
+                                    FASE 3 (12 – 48
+                                    Jam)</div>
+                                <h5 class="text-white" style="margin-bottom: 0.5rem;">Kerusakan Organ Sistemik</h5>
+                                <p class="text-white-80">Terjadi asidosis metabolik, gagal ginjal, nekrosis hati,
+                                    dan penurunan tekanan darah drastis.</p>
+                            </div>
+
+                            <div class="phase-box"
+                                style="padding: 1.5rem; background: rgba(255,255,255,0.1); border-radius: 10px;">
+                                <div class="phase-num" style="color: #fecdd3; font-weight: 700; margin-bottom: 0.5rem;">
+                                    FASE 4 (2 – 6
+                                    Minggu)</div>
+                                <h5 class="text-white" style="margin-bottom: 0.5rem;">Penyempitan Saluran Cerna</h5>
+                                <p class="text-white-80">Pembentukan jaringan parut pasca-luka yang menyempitkan
+                                    usus dan usus halus.</p>
+                            </div>
+                        </div>
+
+                        <div class="antidote-banner mt-4"
+                            style="padding: 1.5rem; background: rgba(0,0,0,0.25); border-radius: 10px; display: flex; gap: 1.5rem; align-items: center;">
+                            <i class="fa-solid fa-capsules antidote-icon text-white" style="font-size: 2.5rem;"></i>
+                            <div>
+                                <h4 class="text-white" style="margin-bottom: 0.3rem;">Penanganan Antidotum
+                                    (Deferoxamine)</h4>
+                                <p class="text-white-80">Tim medis akan memberikan infus <strong>Deferoxamine
+                                        (Desferal)</strong> yang mengikat ion besi berbahaya dan membuangnya secara
+                                    aman melalui urine.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- ========================================== -->
+            <!-- SECTION 6: EDUKASI PENCEGAHAN & NUTRISI    -->
+            <!-- ========================================== -->
+            <section id="pencegahan" class="section bg-light">
+                <div class="container">
+                    <div class="section-header text-center reveal mb-5">
+                        <span class="section-subtitle">Promotive, Preventive & Nutritional Intervention</span>
+                        <h2 class="section-title">Complex Prevention & <span class="gradient-text">Healthy
+                                Lifestyle</span></h2>
+                        <p class="section-desc">Scientific guidelines for anemia prevention through nutrition optimization,
+                            food synergy, national supplementation programs, and elimination of infection factors.
+                        </p>
+                    </div>
+
+                    <!-- SUBSECTION 1: NUTRITION OPTIMIZATION -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-utensils text-green"></i> 1.
+                            Iron Bioavailability & Food Interactions</h3>
+
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <!-- Heme vs Non-Heme -->
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-drumstick-bite text-red"></i>
+                                    Heme vs
+                                    Non-Heme Iron Sources</h4>
+
+                                <div
+                                    style="margin-bottom: 1.2rem; padding: 1.2rem; background: rgba(225, 29, 72, 0.06); border-radius: 10px; border-left: 4px solid #e11d48;">
+                                    <h5 style="margin-bottom: 0.4rem; color: #be123c; font-size: 1.05rem;">Heme Iron
+                                        (Animal Sources)</h5>
+                                    <p style="font-size: 0.92rem; margin-bottom: 0.5rem;"><strong>Sources:</strong>
+                                        Beef/chicken liver, red meat, tuna fish, shellfish, and poultry.</p>
+                                    <small style="color: #475569; display: block;"><strong>Absorption
+                                            Rate:</strong> High (15% – 35%). Absorbed directly by the intestinal
+                                        mucosa without being affected by inhibitors or stomach acid.</small>
+                                </div>
+
+                                <div
+                                    style="padding: 1.2rem; background: rgba(34, 197, 94, 0.06); border-radius: 10px; border-left: 4px solid #22c55e;">
+                                    <h5 style="margin-bottom: 0.4rem; color: #15803d; font-size: 1.05rem;">Non-Heme Iron
+                                        (Plant Sources)</h5>
+                                    <p style="font-size: 0.92rem; margin-bottom: 0.5rem;"><strong>Sumber:</strong>
+                                        Spinach, moringa leaves, red beans, tempeh, tofu, sesame seeds, and water spinach.</p>
+                                    <small style="color: #475569; display: block;"><strong>Tingkat
+                                            Penyerapan:</strong> Low (2% – 20%). Requires an acidic environment and
+                                        absorption enhancers to be converted into soluble iron ions.</small>
+                                </div>
+                            </div>
+
+                            <!-- Enhancers vs Inhibitors -->
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1.2rem;"><i class="fa-solid fa-flask text-blue"></i>
+                                    Absorption Synergy (Enhancers vs Inhibitors)</h4>
+
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1.5rem;">
+                                        <strong class="text-green" style="font-size: 1.02rem;"><i
+                                                class="fa-solid fa-circle-plus"></i> Absorption Enhancers:</strong><br>
+                                        <span style="font-size: 0.95rem;"><strong>Vitamin C (Ascorbic Acid), Citric
+                                                Acid, & Meat Factor:</strong> Consuming vitamin C-rich fruits
+                                            (oranges, guava, or mangoes) together with green vegetables can
+                                            increase non-heme iron absorption by <strong>300%</strong>
+                                            because it prevents iron oxidation.</span>
+                                    </li>
+                                    <li>
+                                        <strong class="text-red" style="font-size: 1.02rem;"><i
+                                                class="fa-solid fa-circle-minus"></i> Absorption Inhibitors:</strong><br>
+                                        <span style="font-size: 0.95rem;"><strong>Tannin Compounds (Tea/Coffee), Phytates
+                                                (Raw Cereals), & Calcium:</strong> These compounds bind iron ions
+                                            into insoluble complexes (unable to be absorbed).
+                                            <strong>Golden Rule:</strong> Leave a minimum 2-hour interval between main meals
+                                            and drinking tea, coffee, or milk.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 2: ZAT GIZI MIKRO KOFAKTOR -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-dna text-blue"></i> 2. Important
+                            Micronutrient Cofactors in Blood Formation (Hematopoiesis)</h3>
+
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <div class="card shadow-sm"
+                                style="padding: 2rem; line-height: 1.7; border: 1px solid rgba(226, 232, 240, 0.8);">
+                                <div class="badge-tag info-badge mb-3">DNA Synthesis & Cell Division</div>
+                                <h4 style="margin-bottom: 0.8rem;">Vitamin B9 (Folic Acid) & Vitamin B12</h4>
+                                <p style="margin-bottom: 1.2rem;">Plays a crucial role in erythrocyte cell maturation.
+                                    Without B9 and B12, blood cells cannot divide properly and become
+                                    fragile (Megaloblastic).</p>
+                                <div
+                                    style="padding: 0.9rem 1.2rem; background: rgba(2, 132, 199, 0.08); border-radius: 8px; font-size: 0.9rem;">
+                                    <i class="fa-solid fa-apple-whole text-blue"></i> <strong>Main Sources:</strong>
+                                    Liver, eggs, beef, legumes, and dark green leafy vegetables.
+                                </div>
+                            </div>
+
+                            <div class="card shadow-sm"
+                                style="padding: 2rem; line-height: 1.7; border: 1px solid rgba(226, 232, 240, 0.8);">
+                                <div class="badge-tag alert-badge mb-3">Iron Transport & Mobilization</div>
+                                <h4 style="margin-bottom: 0.8rem;">Copper, Zinc & Vitamin A</h4>
+                                <p style="margin-bottom: 1.2rem;">Copper helps iron transportation through the enzyme
+                                    <em>Ceruloplasmin</em>, Vitamin A mobilizes iron reserves from the liver, and Zinc
+                                    supports the function of Heme synthesis enzymes.
+                                </p>
+                                <div
+                                    style="padding: 0.9rem 1.2rem; background: rgba(225, 29, 72, 0.08); border-radius: 8px; font-size: 0.9rem;">
+                                    <i class="fa-solid "fa-carrot text-red"></i> <strong>Main Sources:</strong>
+                                    Seafood, pumpkin seeds, carrots, sweet potatoes, and cheese.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 3: PROGRAM KESEHATAN NASIONAL & HYGIENE -->
+                   <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-shield-halved text-green"></i> 3.
+                            National Intervention Program & Parasite Protection</h3>
+
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-hospital-user text-blue"></i>
+                                    Iron Supplement Tablet Program (TTD)</h4>
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Adolescent Girls:</strong> Consume 1 Iron Supplement Tablet (60
+                                        mg elemental iron + 0.4 mg folic acid) every week to replace blood loss
+                                        during menstruation.
+                                    </li>
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Pregnant Women:</strong> Required to consume at least 90 tablets
+                                        during pregnancy to prevent postpartum bleeding and stunting in the
+                                        fetus.
+                                    </li>
+                                    <li>
+                                        <strong>Food Fortification:</strong> Government support through the addition
+                                        of iron and vitamin B to wheat flour and industrial-scale cooking oil.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-bug-slash text-red"></i>
+                                    Worm Infection Protection & Periodic Screening</h4>
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Hookworm Prevention:</strong> Hookworm infection
+                                        (<em>Necator americanus</em>) absorbs blood in the intestine. Take deworming
+                                        medication (Albendazole) regularly every 6 months & use footwear when outdoors.
+                                    </li>
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Routine Blood Screening (CBC):</strong> Perform Hemoglobin
+                                        and <em>Serum Ferritin</em> examinations periodically every 6 months for
+                                        high-risk groups.
+                                    </li>
+                                    <li>
+                                        <strong>Food Sanitation:</strong> Wash hands with soap before eating
+                                        to prevent intestinal infections that inhibit nutrient absorption.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- ========================================== -->
+            <!-- SECTION 7: STRATEGI PEMASARAN INTERNASIONAL -->
+            <!-- ========================================== -->
+            <section id="pemasaran" class="section">
+                <div class="container">
+                    <div class="section-header text-center reveal mb-5">
+                        <span class="section-subtitle">Ekspansi Global & Farmakovigilans</span>
+                        <h2 class="section-title">Strategi Pemasaran <span class="gradient-text">Tingkat
+                                Internasional</span></h2>
+                        <p class="section-desc">Pendekatan komprehensif skala global dalam penetrasi pasar,
+                            diplomasi kesehatan masyarakat, segmentasi multinasional, serta pemasaran farmasi
+                            berbasis bukti ilmiah.</p>
+                    </div>
+
+                    <!-- SUBSECTION 1: KEMITRAAN INSTITUSIONAL & DIPLOMASI GLOBAL -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-earth-americas text-blue"></i> 1.
+                            Kemitraan Strategis Global & Institutional Advocacy</h3>
+
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <div class="badge-tag info-badge mb-3">Multilateral Health Alliances</div>
+                                <h4 style="margin-bottom: 0.8rem;"><i class="fa-solid fa-handshake-angle text-blue"></i>
+                                    Kolaborasi Organisasi
+                                    Kesehatan Dunia</h4>
+                                <p style="margin-bottom: 1.2rem;">Membangun kemitraan strategis dengan <strong>WHO, UNICEF, dan GAIN</strong> (<em>Global Alliance for Improved Nutrition</em>) untuk masuk
+                                    ke dalam skema pengadaan obat internasional (<em>International Tender Supply
+                                        Chain</em>).</p>
+                                <div
+                                    style="padding: 1rem; background: rgba(2, 132, 199, 0.08); border-radius: 8px; font-size: 0.9rem;">
+                                    <strong><i class="fa-solid fa-bullseye text-blue"></i> Target Utama:</strong>
+                                    Program penanggulangan anemia nasional pada negara-negara berkembang di Asia
+                                    Tenggara, Afrika Sub-Sahara, dan Amerika Latin.
+                                </div>
+                            </div>
+
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <div class="badge-tag alert-badge mb-3">G2G & Institutional Contracting</div>
+                                <h4 style="margin-bottom: 0.8rem;"><i class="fa-solid fa-building-columns text-red"></i>
+                                    Pengadaan Pemerintah ke
+                                    Pemerintah (G2G)</h4>
+                                <p style="margin-bottom: 1.2rem;">Menjadi pemasok resmi *Multivitamin & Iron Powder*
+                                    (MNP) serta Tablet Tambah Darah (TTD) dalam program kementerian kesehatan
+                                    berbagai negara melalui perjanjian kontrak jangka panjang.</p>
+                                <div
+                                    style="padding: 1rem; background: rgba(225, 29, 72, 0.08); border-radius: 8px; font-size: 0.9rem;">
+                                    <strong><i class="fa-solid fa-file-contract text-red"></i> Fokus
+                                        Program:</strong> Suplementasi massal untuk ibu hamil dan remaja putri di
+                                    sekolah-sekolah berbasis negara mitra.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 2: SEGMENTASI PRODUK & STRATEGI HARGA (TIERED PRICING) -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-chart-pie text-green"></i> 2.
+                            Segmentasi Pasar & Penetapan Harga Berjenjang</h3>
+
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <div class="card shadow-sm"
+                                style="padding: 2rem; line-height: 1.7; border: 1px solid rgba(226, 232, 240, 0.8);">
+                                <div class="badge-tag info-badge mb-3">High-Income Countries (HIC)</div>
+                                <h4 style="margin-bottom: 0.8rem;">Pasar Negara Maju (Eropa, AS & Asia Timur)</h4>
+                                <p style="margin-bottom: 1rem;"><strong>Fokus Produk:</strong> Sediaan inovatif
+                                    efisiensi tinggi seperti *Liposomal Iron*, *Ferric Carboxymaltose* (IV), dan
+                                    suplemen bebas efek samping lambung.</p>
+                                <ul class="custom-list" style="font-size: 0.92rem;">
+                                    <li><strong>Positioning:</strong> Premium & Biotech-driven.</li>
+                                    <li><strong>Saluran Distribusi:</strong> Apotek rantai global, klinik spesialis
+                                        hematologi, dan platform e-pharmacy terakreditasi.</li>
+                                </ul>
+                            </div>
+
+                            <div class="card shadow-sm"
+                                style="padding: 2rem; line-height: 1.7; border: 1px solid rgba(226, 232, 240, 0.8);">
+                                <div class="badge-tag alert-badge mb-3">Low & Middle-Income Countries (LMIC)</div>
+                                <h4 style="margin-bottom: 0.8rem;">Pasar Negara Berkembang</h4>
+                                <p style="margin-bottom: 1rem;"><strong>Fokus Produk:</strong> Garam besi standar
+                                    (*Ferrous Fumarate / Sulfate*) dengan biaya produksi efisien skala besar.</p>
+                                <ul class="custom-list" style="font-size: 0.92rem;">
+                                    <li><strong>Positioning:</strong> High Affordability & High Bioavailability.
+                                    </li>
+                                    <li><strong>Saluran Distribusi:</strong> Puskesmas, Posyandu, apotek komunitas
+                                        rural, dan bantuan sosial internasional.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 3: PEMASARAN DIGITAL OMNICHANNEL & EVIDENCE-BASED PHARMA -->
+                    <div class="mb-5 reveal">
+                        <h3 class="section-sub-heading mb-4"><i class="fa-solid fa-microscope text-blue"></i> 3.
+                            Pemasaran Berbasis Bukti Ilmiah & Digital Omnichannel</h3>
+
+                        <div class="grid grid-2" style="gap: 2rem;">
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-user-doctor text-blue"></i>
+                                    Evidence-Based Medical Marketing</h4>
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Jurnal Ilmiah Internasional:</strong> Mempublikasikan hasil uji
+                                        klinis (*Clinical Trials Phase III/IV*) mengenai efikasi obat pada jurnal
+                                        medis ternama seperti *The Lancet* atau *NEJM*.
+                                    </li>
+                                    <li>
+                                        <strong>Simposium & CME Global:</strong> Mengadakan *Continuous Medical
+                                        Education* (CME) dan sponsor dalam kongres hematologi internasional untuk
+                                        para dokter spesialis.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="card card-glass shadow-sm" style="padding: 2rem; line-height: 1.8;">
+                                <h4 style="margin-bottom: 1rem;"><i
+                                        class="fa-solid fa-mobile-screen-button text-green"></i> Kampanye Digital
+                                    Precision Health</h4>
+                                <ul class="custom-list">
+                                    <li style="margin-bottom: 1rem;">
+                                        <strong>Aplikasi AI Mobile Screening:</strong> Mengembangkan aplikasi
+                                        kesehatan digital pemindai pucat telapak tangan (*palmar pallor*) berbasis
+                                        AI sebagai sarana skrining awal gratis masyarakat global.
+                                    </li>
+                                    <li>
+                                        <strong>Edukasi Lintas Bahasa & Budaya:</strong> Kampanye infografis dan
+                                        video animasi kesehatan yang dilokalisasi ke dalam belasan bahasa nasional
+                                        negara tujuan.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SUBSECTION 4: STANDAR REGULASI INTERNASIONAL (HIGH CONTRAST FIX) -->
+                    <div class="card reveal" style="padding: 2.5rem; background: #0284c7; border-radius: 16px;">
+                        <div class="text-center mb-4">
+                            <span class="badge-tag mb-2"
+                                style="background: rgba(255, 255, 255, 0.2); color: #ffffff !important; font-weight: 600; display: inline-block; padding: 0.4rem 1rem; border-radius: 20px;">
+                                <i class="fa-solid fa-certificate"></i> SERTIFIKASI GLOBAL
+                            </span>
+                            <h3
+                                style="color: #ffffff !important; font-weight: 700; margin-top: 0.8rem; margin-bottom: 0.5rem;">
+                                Standar Regulasi & Jaminan Mutu Internasional
+                            </h3>
+                            <p style="color: #e0f2fe !important; font-size: 0.95rem;">
+                                Memastikan seluruh lini produk memenuhi persyaratan hukum dan standar farmasi
+                                tertinggi di tingkat dunia.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-3" style="gap: 1.5rem;">
+                            <!-- Box 1: WHO -->
+                            <div
+                                style="padding: 1.5rem; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 12px; text-align: center;">
+                                <i class="fa-solid fa-shield-virus"
+                                    style="font-size: 2rem; color: #ffffff !important; margin-bottom: 0.8rem; display: block;"></i>
+                                <h5
+                                    style="color: #ffffff !important; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                    WHO Prequalification
+                                </h5>
+                                <p style="color: #f1f5f9 !important; font-size: 0.88rem; line-height: 1.6; margin: 0;">
+                                    Kelayakan resmi produk untuk masuk ke dalam katalog pengadaan obat darurat
+                                    Perserikatan Bangsa-Bangsa (PBB).
+                                </p>
+                            </div>
+
+                            <!-- Box 2: FDA & EMA -->
+                            <div
+                                style="padding: 1.5rem; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 12px; text-align: center;">
+                                <i class="fa-solid fa-check-double"
+                                    style="font-size: 2rem; color: #ffffff !important; margin-bottom: 0.8rem; display: block;"></i>
+                                <h5
+                                    style="color: #ffffff !important; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                    US FDA & EMA Approval
+                                </h5>
+                                <p style="color: #f1f5f9 !important; font-size: 0.88rem; line-height: 1.6; margin: 0;">
+                                    Kelulusan standar keamanan, efikasi, dan uji laboratorium klinis dari badan
+                                    pengawas obat Amerika Serikat dan Eropa.
+                                </p>
+                            </div>
+
+                            <!-- Box 3: GMP / CPOB -->
+                            <div
+                                style="padding: 1.5rem; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.25); border-radius: 12px; text-align: center;">
+                                <i class="fa-solid fa-vial-circle-check"
+                                    style="font-size: 2rem; color: #ffffff !important; margin-bottom: 0.8rem; display: block;"></i>
+                                <h5
+                                    style="color: #ffffff !important; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">
+                                    Sertifikasi GMP / CPOB
+                                </h5>
+                                <p style="color: #f1f5f9 !important; font-size: 0.88rem; line-height: 1.6; margin: 0;">
+                                    Penerapan <em>Good Manufacturing Practice</em> terkini untuk menjamin
+                                    konsistensi mutu dan kebersihan produksi pabrik.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+</section>
+
+                    <!-- ========================================== -->
+                    <!-- SECTION 8: SEJARAH OBAT DARI MASA KE MASA  -->
+                    <!-- ========================================== -->
+                    <section id="sejarah" class="section bg-light">
+                        <div class="container">
+                            <div class="section-header text-center reveal">
+                                <span class="section-subtitle">Kronologi Sains Hematologi</span>
+                                <h2 class="section-title">Evolusi Pengobatan <span class="gradient-text">Anemia</span>
+                                </h2>
+                                <p class="section-desc">Langkah bersejarah penemuan medis dari mitologi Yunani Kuno,
+                                    era penemuan zat besi, isolasi vitamin, hingga bioteknologi rekayasa genetika
+                                    modern.</p>
+                            </div>
+
+                            <div class="timeline">
+                                <!-- Timeline Item 1 -->
+                                <div class="timeline-item left reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">400 SM – Abad ke-16</span>
+                                        <h3>Era Kuno & Konsep "Darah Pucat"</h3>
+                                        <p>Pada masa Yunani Kuno, Hippocrates dan Galen mengaitkan gejala tubuh
+                                            pucat dan lemas dengan ketidakseimbangan cairan tubuh
+                                            (<em>humorism</em>). Pengobatan kuno dilakukan secara empiris dengan
+                                            memberikan air rendaman pedang berkarat atau cuka besi (<em>iron
+                                                vinegar</em>) tanpa memahami mekanisme biokimia zat besi dalam
+                                            darah.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 2 -->
+                                <div class="timeline-item right reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1554 - 1681</span>
+                                        <h3>Penamaan "Chlorosis" & Penggunaan Besi Klinis Pertama</h3>
+                                        <p>Pada tahun 1554, Johannes Lange mendeskripsikan kondisi ini sebagai
+                                            <em>Morbus Virgineus</em> atau "Penyakit Hijau" (<em>Chlorosis</em>)
+                                            yang sering menyerang wanita remaja. Baru pada tahun 1681, dokter
+                                            Inggris <strong>Thomas Sydenham</strong> secara resmi mendokumentasikan
+                                            bahwa serbuk besi yang dilarutkan dalam anggur dingin mampu menyembuhkan
+                                            kondisi kulit pucat ini.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 3 -->
+                                <div class="timeline-item left reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1732</span>
+                                        <h3>Pembuktian Keberadaan Zat Besi dalam Darah</h3>
+                                        <p>Ilmuwan Italia <strong>Vencenzio Menghini</strong> melakukan eksperimen
+                                            bersejarah dengan membakar darah manusia dan hewan hingga menjadi abu.
+                                            Ia membuktikan untuk pertama kalinya bahwa abu darah mengandung zat besi
+                                            (<em>iron</em>) yang dapat ditarik menggunakan batang magnet.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 4 -->
+                                <div class="timeline-item right reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1832</span>
+                                        <h3>Penemuan "Blaud's Pills" (Formulasi Standar Obat)</h3>
+                                        <p>Dokter Prancis <strong>Dr. Pierre Blaud</strong> meracik formulasi obat
+                                            anemia pertama yang terukur: kombinasi <em>Ferrous Carbonate</em> dan
+                                            <em>Potassium Carbonate</em>. Tablet yang dikenal sebagai "Blaud's
+                                            Pills" ini menjadi standar emas pengobatan Anemia Defisiensi Besi selama
+                                            lebih dari satu abad.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 5 -->
+                                <div class="timeline-item left reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1926 - 1934</span>
+                                        <h3>Terapi Hati Mentah & Hadiah Nobel Anemia Pernisiosa</h3>
+                                        <p><strong>George Whipple, George Minot, dan William Murphy</strong>
+                                            menemukan bahwa memberi makan ekstrak hati mentah dalam jumlah besar
+                                            kepada pasien dapat menyembuhkan <em>Anemia Pernisiosa</em> yang
+                                            dahulunya selalu berakibat fatal. Penemuan ini dianugerahi
+                                            <strong>Hadiah Nobel Fisiologi/Kedokteran pada tahun 1934</strong>.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 6 -->
+                                <div class="timeline-item right reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1931 - 1948</span>
+                                        <h3>Isolasi Asam Folat (B9) & Vitamin B12</h3>
+                                        <p>Dr. Lucy Wills (1931) menemukan "Faktor Wills" (Asam Folat) dari ekstrak
+                                            ragi untuk mengatasi anemia ibu hamil di India. Kemudian pada tahun
+                                            1948, tim peneliti pimpinan <strong>Karl Folkers</strong> (AS) dan
+                                            <strong>Alexander Todd</strong> (Inggris) berhasil mengisolasi kristal
+                                            murni <strong>Cyanocobalamin (Vitamin B12)</strong> dari hati.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 7 -->
+                                <div class="timeline-item left reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1929 - 1954</span>
+                                        <h3>Klasifikasi Indeks Eritrosit Wintrobe & Injeksi Parenteral</h3>
+                                        <p><strong>Maxwell Wintrobe</strong> memperkenalkan pengukuran indeks sel
+                                            darah merah (MCV, MCH, MCHC) yang membagi anemia menjadi mikrositik,
+                                            normositik, dan makrositik. Pada tahun 1954, senyawa <em>Iron
+                                                Dextran</em> diperkenalkan sebagai terapi suntik
+                                            intravena/intramuskular pertama untuk pasien yang tidak mampu menyerap
+                                            besi oral.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 8 -->
+                                <div class="timeline-item right reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Tahun 1985 - 1989</span>
+                                        <h3>Revolusi Bioteknologi: Rekayasa Genetika Eritropoietin (EPO)</h3>
+                                        <p>Ilmuwan <strong>Fu-Kuen Lin</strong> berhasil mengkloning gen
+                                            Eritropoietin manusia. Pada tahun 1989, FDA menyetujui penggunaan
+                                            <em>Recombinant Human Erythropoietin (rhEPO)</em>, merangsang
+                                            pembentukan sel darah merah secara langsung di sumsum tulang tanpa perlu
+                                            transfusi darah berulang pada pasien Gagal Ginjal Kronis.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Timeline Item 9 -->
+                                <div class="timeline-item left reveal">
+                                    <div class="timeline-content">
+                                        <span class="timeline-badge">Abad 21 (Tahun 2000 - Sekarang)</span>
+                                        <h3>Penemuan Hormon Hepcidin & Besi IV Generasi Baru</h3>
+                                        <p>Penemuan hormon <strong>Hepcidin</strong> pada tahun 2000 membuka
+                                            pemahaman baru tentang regulator utama penyerapan besi tubuh. Industri
+                                            farmasi modern mengembangkan molekul besi intravena generasi baru
+                                            seperti <em>Ferric Carboxymaltose (FCM)</em> yang memungkinkan pemberian
+                                            dosis tinggi zat besi dalam waktu 15 menit dengan tingkat keamanan organ
+                                            yang sangat tinggi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+<!-- ========================================== -->
+<!-- SECTION 9: PROFIL PEMBUAT WEBSITE          -->
+<!-- ========================================== -->
+<section id="profil" class="section">
+    <div class="container">
+        <div class="section-header text-center reveal">
+            <span class="section-subtitle">Pengembang Sistem</span>
+            <h2 class="section-title">Profil <span class="gradient-text">Pembuat Website</span></h2>
+            <p class="section-desc">Sistem Informasi dikembangkan oleh siswa SMK Jurusan RPL & FKK.</p>
+        </div>
+
+        <!-- Wrapper dibuka di sini dan membungkus semua kartu -->
+        <div class="profile-card-wrapper reveal">
+            
+            <!-- KETUA -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Muhammad Fatahillah.JPG" alt="Foto Ketua" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=Ketua';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Muhammad Fatahillah</h3>
+                    <p class="profile-role">Ketua Tim</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span><strong>Kelas : </strong> XI RPL 1 </span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span><strong>Jurusan : </strong> Rekayasa perangkat Lunak</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGGOTA 1 -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Muhammad Fastabiq Attaqy.JPG" alt="Anggota 1" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=A1';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Muhammad Fastabiq Attaqy</h3>
+                    <p class="profile-role">Full Stack Developer</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span><strong>Kelas : </strong> XI RPL 1 </span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span><strong>Jurusan : </strong> Rekayasa perangkat Lunak</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGGOTA 2 -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Devi Fithriyana Zulfa.JPG" alt="Anggota 2" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=A2';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Devi Fithriyana Zulfa</h3>
+                    <p class="profile-role">educational content creator</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <span><strong>Kelas : </strong> XI FKK</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <span><strong>Jurusan : </strong> Farmasi Klinis & Komunitas</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGGOTA 3 -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Muhammad Faza Akmal.JPG" alt="Anggota 3" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=A3';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Muhammad Faza Akmal</h3>
+                    <p class="profile-role">educational content creator</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span><strong>Kelas : </strong>XI RPL 2 </span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span><strong>Jurusan : </strong> Rekayasa perangkat Lunak</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGGOTA 4 -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Faiza Shafarani.JPG" alt="Anggota 4" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=A4';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Faiza Shafarani</h3>
+                    <p class="profile-role">educational content creator</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span><strong>Kelas : </strong> XI FKK </span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <span><strong>Jurusan : </strong> Farmasi Klinis & Komunitas</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGGOTA 5 -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Syifa'atul Fauziyah.JPG" alt="Anggota 5" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=A5';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Syifa'atul Fauziyah</h3>
+                    <p class="profile-role">educational content creator</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span><strong>Kelas : </strong> XI RPL 2 </span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span><strong>Jurusan : </strong> Rekayasa perangkat Lunak</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANGGOTA 6 -->
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-container">
+                        <img src="assets/images/Dewi Puji Lestari.JPG" alt="Anggota 6" onerror="this.src='https://via.placeholder.com/150/0284c7/ffffff?text=A6';">
+                        <span class="status-online"></span>
+                    </div>
+                    <h3>Dewi Puji Lestari</h3>
+                    <p class="profile-role">educational content creator</p>
+                </div>
+                <div class="profile-details">
+                    <div class="detail-row">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span><strong>Kelas : </strong> XI FKK</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-mortar-pestle"></i>
+                        <span><strong>Jurusan : </strong> Farmasi Klinis & Komunitas</span>
+                    </div>
+                    <div class="detail-row">
+                        <i class="fa-solid fa-school"></i>
+                        <span><strong>Sekolah : </strong> SMK Al Sya'iriyah Limpung</span>
+                    </div>
+                </div>
+            </div>
+
+        </div> <!-- Penutup profile-card-wrapper -->
+
+    </div> <!-- Penutup container -->
+</section>
+</main>
+
+                    <!-- ========================================== -->
+                    <!-- FOOTER                                     -->
+                    <!-- ========================================== -->
+                    <footer class="footer">
+                        <div class="container grid grid-3">
+                            <div class="footer-col">
+                                <div class="brand-logo mb-2">
+                                    <div class="logo-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                                    <span class="brand-title">ANTI<span class="highlight">ANEMIA</span></span>
+                                </div>
+                                <p>Sistem Informasi Penyakit Anemia & Edukasi Penggunaan Obat Terpercaya berbasis Web
+                                    Digital.</p>
+                            </div>
+                            <div class="footer-col">
+                                <h4>Navigasi Cepat</h4>
+                                <ul>
+                                    <li><a href="#home">Beranda</a></li>
+                                    <li><a href="#pengertian">Edukasi Medis</a></li>
+                                    <li><a href="#obat">Farmakologi</a></li>
+                                    <li><a href="#pencegahan">Pencegahan</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-col">
+                                <h4>Penafian (Disclaimer)</h4>
+                                <p>Informasi pada website ini bertujuan untuk edukasi dan tidak menggantikan diagnosis
+                                    medis langsung
+                                    dari dokter profesional.</p>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <div class="container">
+                                <p>&copy; 2026 ANTI ANEMIA - RPL & FKK SMK Project. All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </footer>
+
+                    <!-- ========================================== -->
+                    <!-- MODAL POPUP DETAIL OBAT                    -->
+                    <!-- ========================================== -->
+                    <div id="drug-modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close-modal">&times;</span>
+                            <div id="modal-body-content">
+                                <!-- Isi modal diisi secara dinamis oleh JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom JavaScript -->
+                    <script src="script.js"></script>
+</body>
+
+</html>
